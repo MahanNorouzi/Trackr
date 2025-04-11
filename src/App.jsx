@@ -48,7 +48,7 @@ const App = () => {
   };
 
   return (
-    <div className="p-6 max-w-xl mx-auto">
+    <div className="p-6 max-w-xl mx-auto  ">
       <h1 className="text-2xl font-bold mb-4">Job Application Tracker</h1>
 
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -97,7 +97,7 @@ const App = () => {
             <p>Date: {app.date}</p>
             <button
               onClick={() => handleDelete(index)}
-              className="bg-red-500 text-white px-3 py-1 rounded mt-2 hover:bg-red-600"
+              class="bg-red-500 text-white px-3 py-1 rounded mt-2 hover:bg-red-600"
             >
               Delete
             </button>
