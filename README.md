@@ -18,6 +18,18 @@ Trackr is a job tracking application designed to help users efficiently manage a
 ## Note on Authentication
 
 - This application currently **does not support sign-up functionality**. To log in, users must set up their own Firebase project and add Firebase credentials.
+- If testing the **demo site**, use the following credentials:
+  - **Email**: test@test.com
+  - **Password**: 123456
+
+---
+
+## Live Demo
+
+You can access the live demo of Trackr here:
+[Trackr Live Demo](https://trackr-private.vercel.app/)
+
+> **Note**: The live demo is still in development, and there are known bugs. These bugs will be fixed in future updates.
 
 ---
 
