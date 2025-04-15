@@ -151,7 +151,7 @@ const Dashboard = () => {
         {isFormVisible && (
           <form
             onSubmit={handleSubmit}
-            className="space-y-4 mb-6 bg-zinc-800 p-4 rounded-md fixed bottom-16 left-65 w-5/6 transition-all duration-300 ease-in-out mx-auto"
+            className="space-y-4 mb-6 bg-zinc-950 p-4 rounded-md fixed  bottom-16 left-8 md:left-20 lg:left-35 xl:left-65  w-4/5  transition-all duration-300 ease-in-out mx-auto"
           >
             <div className="flex flex-col md:flex-row gap-4">
               <input
