@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
 import { useAuth } from "../components/AuthContext";
 import { useNavigate } from "react-router-dom";
@@ -6,20 +6,37 @@ import { useNavigate } from "react-router-dom";
 const Auth = () => {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
+  const [error, seterror] = useState(true);
+  const [loading, setLoading] = useState(false);
   const { setUser } = useAuth();
   const auth = getAuth();
   const navigate = useNavigate();
 
   const handleSignin = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const userCred = await signInWithEmailAndPassword(auth, Email, Password);
       setUser(userCred.user);
       navigate("/dashboard");
     } catch (err) {
       console.error(err);
+    } finally {
+      setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (Password === "") {
+      seterror(false);
+    } else {
+      if (Password.length <= 5) {
+        seterror(true);
+      } else {
+        seterror(false);
+      }
+    }
+  }, [Password]);
 
   return (
     <div className="flex min-h-screen">
@@ -56,11 +73,45 @@ const Auth = () => {
               className="w-full p-3 rounded-md bg-zinc-800 text-white border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-white"
               onChange={(e) => setPassword(e.target.value)}
             />
+            {error && (
+              <p className="text-red-500 text-sm text-center mt-1">
+                {" "}
+                Password must be at least 6 characters long.
+              </p>
+            )}
+
             <button
               type="submit"
-              className="w-full bg-white text-black py-3 rounded-md font-semibold hover:bg-gray-200 transition"
+              className="w-full bg-white text-black py-3 rounded-md font-semibold hover:bg-gray-200 transition flex justify-center items-center gap-2"
+              disabled={loading}
             >
-              Sign In
+              {loading ? (
+                <>
+                  <svg
+                    className="animate-spin h-5 w-5 text-black"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 00-8 8h4z"
+                    ></path>
+                  </svg>
+                  Signing in...
+                </>
+              ) : (
+                "Sign In"
+              )}
             </button>
           </form>
 
