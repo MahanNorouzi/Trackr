@@ -143,7 +143,7 @@ const Dashboard = () => {
 
         <button
           onClick={toggleFormVisibility}
-          className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 hover:from-blue-500 hover:to-blue-400 p-3 rounded-full fixed bottom-8 right-8 shadow-2xl hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out z-10"
+          className=" hidden md:flex bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 hover:from-blue-500 hover:to-blue-400 p-3 rounded-full fixed bottom-8 right-8 shadow-2xl hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out z-10"
         >
           <span className="text-3xl text-white">+</span>
         </button>
@@ -233,6 +233,38 @@ const Dashboard = () => {
           ))}
         </div>
       </main>
+      <div className="md:hidden fixed bottom-0 left-0 w-full h-2/20  bg-zinc-900 flex justify-around items-center">
+        <div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="32x"
+            viewBox="0 -960 960 960"
+            width="32px"
+            fill="#e3e3e3"
+          >
+            <path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z" />
+          </svg>
+        </div>
+        <div>
+          <button
+            onClick={toggleFormVisibility}
+            className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 hover:from-blue-500 hover:to-blue-400 p-1 px-3 rounded-xl shadow-2xl hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out text-3xl"
+          >
+            +
+          </button>
+        </div>
+        <div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="32px"
+            viewBox="0 -960 960 960"
+            width="32px"
+            fill="#e3e3e3"
+          >
+            <path d="M591.21-226.67q-41.21 0-69.54-28.45-28.34-28.46-28.34-69.67t28.46-69.54q28.45-28.34 69.67-28.34 41.21 0 69.54 28.46 28.33 28.45 28.33 69.67 0 41.21-28.45 69.54-28.46 28.33-69.67 28.33ZM186.67-80q-27 0-46.84-19.83Q120-119.67 120-146.67v-600q0-27 19.83-46.83 19.84-19.83 46.84-19.83h56.66V-880h70v66.67h333.34V-880h70v66.67h56.66q27 0 46.84 19.83Q840-773.67 840-746.67v600q0 27-19.83 46.84Q800.33-80 773.33-80H186.67Zm0-66.67h586.66v-420H186.67v420Zm0-486.66h586.66v-113.34H186.67v113.34Zm0 0v-113.34 113.34Z" />
+          </svg>
+        </div>
+      </div>
     </div>
   );
 };
