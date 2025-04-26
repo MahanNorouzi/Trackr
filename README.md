@@ -29,7 +29,7 @@ Trackr is a job tracking application designed to help users efficiently manage a
 You can access the live demo of Trackr here:
 [Trackr Live Demo](https://trackr-private.vercel.app/)
 
-> **Note**: The live demo is still in development, and there are known bugs. These bugs will be fixed in future updates.
+> **Note**:  The live demo is still in development, and there are known bugs that will be fixed in future updates. Also, make sure that Firebase grants access to your client.
 
 ---
 
